@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SORA</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/registration.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <button class="color-scheme"></button>
+    </div>
+    <div class="central-part">
+        <div class="content">
+            <div class="text-box">
+                <h1 class="h1">enter</h1>
+                <p class="p">you are one step closer</p>
+            </div>
+            <div class="card">
+                <div class="bar">
+                    <p class="bar-1">REGISTRATION FORM</p>
+                    <p class="bar-2">HOSHI</p>
+                </div>
+                <div class="spacer"></div>
+                <input type="nickname" class="reg-input" placeholder="nickname"></input>
+                <div class="line"></div>
+                <div class="spacer"></div>
+                <input type="password" class="reg-input" placeholder="password"></input>
+                <div class="line"></div>
+                <div class="spacer1"></div>
+                <a class="enter" href="{% url 'home_page' %}">ENTER</a>
+            </div>
+        </div>
+        <div class="abstract-1"></div>
+        <div class="abstract-2"></div>
+        <div class="blur"></div>
+    </div>
+</body>
+</html>

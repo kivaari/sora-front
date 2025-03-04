@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SORA</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+</head>
+<body>
+    <div class="spacer"></div>
+    <div class="nav">
+        <div class="nav-center">
+            <h1 class="navtext">HOSHI</h1>
+        </div>
+        <button class="color-scheme"></button>
+    </div>
+    <div class="central-part">
+        <div class="super-central-block">
+            <div class="central-block">
+                <div class="generation">
+                </div>
+                <div class="other">
+                    <div class="compositions">
+                    </div>
+                    <div class="socials">
+                    </div>
+                </div>
+            </div>
+            <div class="audio-block">
+                <p class="audio-name">Generated composition 1</p>
+                <div class="audio-container">
+                    <p class="current">0:00</p>
+                    <div class="timeline">
+                        <div class="progress"></div>
+                    </div>
+                    <p class="length">0:00</p>
+                </div>
+                <div class="buttons">
+                    <button class="like"><img src="{% static 'main/Like.png' %}" alt="Like"></button>
+                    <div class="centration">
+                        <button class="back"><img src="{% static 'main/BackButton.png' %}" alt="Back"></button>
+                        <button class="play"><img src="{% static 'main/PlayButton.png' %}" alt="Play"></button>
+                        <button class="next"><img src="{% static 'main/NextButton.png' %}" alt="Next"></button>
+                    </div>
+                    <div class="volume-interaction">
+                        <img class="volume-icon" src="{% static 'main/VolumeIcon.png' %}" alt="Volume">
+                        <input type="range" class="volume" min="0" max="1" step="0.1" value="1" id="volume">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="abstract-1"></div>
+        <div class="abstract-2"></div>
+        <div class="blur"></div>
+    </div>
+    <script>
+        // Передаем путь к треку через переменную
+        const trackUrl = "{% static 'main/track2.mp3' %}";
+    </script>
+    <script src="{% static 'main/js/Audio.js' %}"></script>
+</body>
+</html>

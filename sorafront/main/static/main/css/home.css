@@ -1,0 +1,318 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url('../back.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+.spacer {
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.nav {
+    width: 100%;
+    height: 6.5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.nav-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navtext {
+    font-family: 'Hypik', Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 96px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.color-scheme {
+    background: url('../pallete.png') no-repeat center center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.abstract-1 {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: url('../abstract.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+}
+
+.abstract-2 {
+    position: absolute;
+    top: 120%;
+    left: -10%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    background: url('../abstract.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    rotate: 90deg;
+}
+
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+.central-part {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.super-central-block {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.central-block {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: solid 1px;
+    border-radius: 40px;
+    border-color: rgba(255, 255, 255, 0.3);
+    width: 1800px;
+    height: 900px;
+    max-width: 90vw;
+    max-height: 90vh;
+    backdrop-filter: blur(30px);
+    z-index: 3;
+    margin-bottom: -70px;
+}
+
+.audio-block {
+    position: relative;
+    width: 680px;
+    height: 140px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: solid 1px;
+    border-radius: 40px;
+    border-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(30px);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.audio-name {
+    font-family: 'Heebo', Arial, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.buttons {
+    width: 505px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.centration {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.like {
+    background: url('../Like.png') no-repeat center center;
+    background-size: contain;
+    width: 25px;
+    height: 21px;
+}
+
+.back {
+    background: url('../BackButton.png') no-repeat center center;
+    background-size: contain;
+    width: 21px;
+    height: 21px;
+}
+
+.play {
+    background: url('../PlayButton.png') no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.pause {
+    background: url('../StopButton.png') no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.next {
+    background: url('../NextButton.png') no-repeat center center;
+    background-size: contain;
+    width: 21px;
+    height: 21px;
+}
+
+.volume-interaction {
+    display: flex;
+    align-items: center;
+}
+
+.volume-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.volume {
+    width: 70px;
+    height: 4px;
+    appearance: none; /* Убираем стандартную стилизацию */
+    -webkit-appearance: none; /* Для Chrome и Safari */
+    -moz-appearance: none; /* Для Firefox */
+    border-radius: 10px; /* Скругляем края */
+    outline: none; /* Убираем фокусное обрамление */
+    background: linear-gradient(to right, #E0E0E0 50%, rgba(255, 255, 255, 0.3) 50%); /* Цвета по умолчанию */
+    background-size: 200% 100%; /* Дважды увеличиваем размер градиента */
+    background-position: left; /* Начинаем с левой стороны */
+    transition: background-position 0.3s ease; /* Плавная анимация при изменении */
+}
+
+/* Скрываем ручку (thumb) в Chrome и Safari */
+.volume::-webkit-slider-thumb {
+    display: none;
+}
+
+/* Скрываем ручку (thumb) в Firefox */
+.volume::-moz-range-thumb {
+    display: none;
+}
+
+/* Задаем фон для всей дорожки */
+.volume::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3); /* Фон незаполненной части */
+}
+
+/* Задаем фон для всей дорожки в Firefox */
+.volume::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3); /* Фон незаполненной части */
+}
+
+.audio-container {
+    width: 562px;
+    height: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.current {
+    position: relative;
+    top: -50%;
+    font-family: 'Heebo', Arial, sans-serif;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    text-align: center;
+}
+
+.length {
+    position: relative;
+    top: -50%;
+    font-family: 'Heebo', Arial, sans-serif;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    text-align: center;
+}
+
+.timeline {
+    width: 505px;
+    height: 7px;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+}
+
+.timeline .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #E0E0E0;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}

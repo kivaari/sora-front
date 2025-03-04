@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-size: cover;
+    background-color: black;
+}
+
+.nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+
+.color-scheme {
+    background: url('../pallete.png') no-repeat center center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.central-part {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.back-png {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: url('../1.png') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+}
+
+.back-gif-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: url('../1.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 2;
+    filter: blur(10px);
+    mix-blend-mode: overlay;
+}
+
+.back-gif-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: url('../2.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 3;
+    filter: blur(10px);
+    mix-blend-mode: saturation;
+}
+
+.back-gif-3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130%;
+    height: 130%;
+    background: url('../3.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 4;
+    filter: blur(10px);
+    mix-blend-mode: soft-light;
+}
+
+.blur-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1200px;
+    width: 50%;
+    height: 50%;
+    background: url('../logo.png') no-repeat center center;
+    background-size: contain;
+    z-index: 6;
+    mix-blend-mode: lighten;
+}
+
+.gif {
+    position: absolute;
+    top: 70%;
+    width: 150px;
+    height: 150px;
+    background: url('../push.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 7;
+    filter: blur(5px);
+}
