@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="audio-block">
-                <p class="audio-name">Generated composition 1</p>
+                <p class="audio-name" id="current-track">Title</p>
                 <div class="audio-container">
                     <p class="current">0:00</p>
                     <div class="timeline">
@@ -37,15 +37,32 @@
                     <p class="length">0:00</p>
                 </div>
                 <div class="buttons">
-                    <button class="like"><img src="{% static 'main/Like.png' %}" alt="Like"></button>
+                    <div class="track-interactions">
+                        <button class="like" id="likeButton" 
+                                data-liked="{% static 'main/Liked.png' %}" 
+                                data-unliked="{% static 'main/Like.png' %}">
+                            <img src="{% static 'main/Like.png' %}" alt="Like">
+                        </button>
+                        <button class="loop-btn" id="loopButton" 
+                                data-loop-on="{% static 'main/loopON.png' %}" 
+                                data-loop-off="{% static 'main/loopOFF.png' %}">
+                            <img src="{% static 'main/loopOFF.png' %}" alt="Loop Off">
+                        </button>
+                    </div>
                     <div class="centration">
-                        <button class="back"><img src="{% static 'main/BackButton.png' %}" alt="Back"></button>
-                        <button class="play"><img src="{% static 'main/PlayButton.png' %}" alt="Play"></button>
-                        <button class="next"><img src="{% static 'main/NextButton.png' %}" alt="Next"></button>
+                        <button class="back">
+                            <img src="{% static 'main/BackButton.png' %}" alt="Back">
+                        </button>
+                        <button class="play" id="playButton">
+                            <img src="{% static 'main/PlayButton.png' %}" alt="Play">
+                        </button>
+                        <button class="next">
+                            <img src="{% static 'main/NextButton.png' %}" alt="Next">
+                        </button>
                     </div>
                     <div class="volume-interaction">
                         <img class="volume-icon" src="{% static 'main/VolumeIcon.png' %}" alt="Volume">
-                        <input type="range" class="volume" min="0" max="1" step="0.1" value="1" id="volume">
+                        <input type="range" class="volume" min="0" max="100" step="1" value="100" id="volumeSlider">
                     </div>
                 </div>
             </div>
@@ -55,7 +72,6 @@
         <div class="blur"></div>
     </div>
     <script>
-        // Передаем путь к треку через переменную
         const trackUrl = "{% static 'main/track2.mp3' %}";
     </script>
     <script src="{% static 'main/js/Audio.js' %}"></script>

@@ -128,6 +128,20 @@ body {
     backdrop-filter: blur(30px);
     z-index: 3;
     margin-bottom: -70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.generation {
+    border: solid 1px;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0.3);
+    height: 820px;
+    width: 400px;
+    margin-left: 40px;
 }
 
 .audio-block {
@@ -151,7 +165,10 @@ body {
     color: rgba(255, 255, 255, 1);
     font-size: 24px;
     font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-top: 10px;
+    overflow: hidden;
 }
 
 .buttons {
@@ -177,11 +194,68 @@ body {
     gap: 11px;
 }
 
+.track-interactions {
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
 .like {
-    background: url('../Like.png') no-repeat center center;
-    background-size: contain;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     width: 25px;
-    height: 21px;
+    height: 25px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.like:hover img {
+    opacity: 0.8;
+}
+
+.loop-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 29px;
+    height: 25px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loopButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+}
+
+#loopButton.active img {
+    content: url('../loopON.png'); 
+}
+
+#loopButton:not(.active) img {
+    content: url('../loopOFF.png');
+}
+
+#loopButton:hover img {
+    opacity: 0.8;
 }
 
 .back {
@@ -192,17 +266,28 @@ body {
 }
 
 .play {
-    background: url('../PlayButton.png') no-repeat center center;
-    background-size: contain;
+    background: none;
+    border: none;
+    cursor: pointer;
     width: 40px;
     height: 40px;
 }
 
 .pause {
-    background: url('../StopButton.png') no-repeat center center;
-    background-size: contain;
+    background: none;
+    border: none;
+    cursor: pointer;
     width: 40px;
     height: 40px;
+}
+
+#playButton.play img {
+    content: url('../PlayButton.png');
+
+}
+
+#playButton.pause img {
+    content: url('../StopButton.png');
 }
 
 .next {
@@ -225,41 +310,27 @@ body {
 .volume {
     width: 70px;
     height: 4px;
-    appearance: none; /* Убираем стандартную стилизацию */
-    -webkit-appearance: none; /* Для Chrome и Safari */
-    -moz-appearance: none; /* Для Firefox */
-    border-radius: 10px; /* Скругляем края */
-    outline: none; /* Убираем фокусное обрамление */
-    background: linear-gradient(to right, #E0E0E0 50%, rgba(255, 255, 255, 0.3) 50%); /* Цвета по умолчанию */
-    background-size: 200% 100%; /* Дважды увеличиваем размер градиента */
-    background-position: left; /* Начинаем с левой стороны */
-    transition: background-position 0.3s ease; /* Плавная анимация при изменении */
+    background: rgba(255, 255, 255, 0.3);
+    background-image: none;
 }
 
-/* Скрываем ручку (thumb) в Chrome и Safari */
 .volume::-webkit-slider-thumb {
-    display: none;
+    display: block;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #E0E0E0;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-/* Скрываем ручку (thumb) в Firefox */
 .volume::-moz-range-thumb {
-    display: none;
-}
-
-/* Задаем фон для всей дорожки */
-.volume::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3); /* Фон незаполненной части */
-}
-
-/* Задаем фон для всей дорожки в Firefox */
-.volume::-moz-range-track {
-    width: 100%;
-    height: 4px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3); /* Фон незаполненной части */
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #E0E0E0;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .audio-container {
@@ -304,6 +375,7 @@ body {
     overflow: hidden;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .timeline .progress {
