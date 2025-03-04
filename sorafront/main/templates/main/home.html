@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
 </head>
 <body>
-    <div class="spacer"></div>
     <div class="nav">
         <div class="nav-center">
             <h1 class="navtext">HOSHI</h1>
@@ -62,7 +61,10 @@
                     </div>
                     <div class="volume-interaction">
                         <img class="volume-icon" src="{% static 'main/VolumeIcon.png' %}" alt="Volume">
-                        <input type="range" class="volume" min="0" max="100" step="1" value="100" id="volumeSlider">
+                        <input type="range" class="volume" 
+                                min="0" max="100" step="1" 
+                                value="100" id="volumeSlider" 
+                                style="--fill-percent: 100%">
                     </div>
                 </div>
             </div>

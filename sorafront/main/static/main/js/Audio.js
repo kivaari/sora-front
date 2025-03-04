@@ -112,5 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
             : likeButton.dataset.unliked;
     });
 
+    volumeSlider.addEventListener('input', function() {
+        const percent = (this.value / this.max) * 100;
+        this.style.setProperty('--fill-percent', `${percent}%`);
+        
+        // Для Firefox
+        const firefoxGradient = `linear-gradient(to right, #E0E0E0 ${percent}%, rgba(224, 224, 224, 0.5) ${percent}%)`;
+        this.style.background = firefoxGradient;
+    });
+
     initPlayer();
 });
