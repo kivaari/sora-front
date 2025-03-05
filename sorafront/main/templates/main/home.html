@@ -18,11 +18,437 @@
         <div class="super-central-block">
             <div class="central-block">
                 <div class="generation">
+                    <div class="gen-content">
+                        <div class="model-version">
+                            <div class="model-1">
+                                <p class="model-text">Model Version</p>
+                                <img src="{% static 'main/faq.png' %}" alt="faq" class="faq" data-tooltip="вфывфывфывфывфывфывфыДругая подсказка">
+                            </div>
+                            <select class="custom-select">
+                                <option value="1" class="values">hoshi-v1</option>
+                                <option value="2" class="values">hoshi-v2</option>
+                            </select>
+                        </div>
+                        <div class="music-style">
+                            <div class="music-1">
+                                <div class="music-2">
+                                    <p class="model-text">Style of Music</p>
+                                    <img src="{% static 'main/faq.png' %}" alt="faq" class="faq">
+                                </div>
+                                <div class="music-3">
+                                    <div class="switch">
+                                        <input type="checkbox" id="switch"/>
+                                        <label for="switch">Toggle</label>
+                                    </div>
+                                    <p class="exclude">Exclude Styles</p>
+                                    <img src="{% static 'main/faq2.png' %}" alt="faq" class="faq-2">
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <textarea class="style-input"></textarea>
+                                <span class="placeholder">Enter style of music</span>
+                            </div>
+                        </div>
+                        <div class="tempo">
+                            <div class="music-4">
+                                <p class="model-text">Tempo</p>
+                                <img src="{% static 'main/faq.png' %}" alt="faq" class="faq">
+                            </div>
+                            <div class="input-container2">
+                                <textarea class="style-input"></textarea>
+                                <span class="placeholder">Enter a tempo</span>
+                            </div>
+                        </div>
+                        <div class="tempo2">
+                            <div class="music-4">
+                                <p class="model-text">Title</p>
+                                <img src="{% static 'main/faq.png' %}" alt="faq" class="faq">
+                            </div>
+                            <div class="input-container2">
+                                <textarea class="style-input"></textarea>
+                                <span class="placeholder">Enter a title</span>
+                            </div>
+                        </div>
+                        <button class="create-btn">
+                            CREATE
+                        </button>
+                    </div>
                 </div>
                 <div class="other">
                     <div class="compositions">
+                        <div class="comp-cont">
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                            <li class="composition">
+                                <div class="comp-container">
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
+                                    <p class="comp-title">Title</p>
+                                </div>
+                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
+                                <p class="comp-tempo">160 bpm</p>
+                                <p class="comp-dur">1:00</p>
+                                <div class="comp-interactions">
+                                    <button class="del"></button>
+                                    <button class="lik"></button>
+                                    <button class="downl"></button>
+                                </div>
+                            </li>
+                        </div>
                     </div>
                     <div class="socials">
+                        <p class="total-generations">total generations: 15</p>
+                        <div class="soc">
+                            <button class="github"></button>
+                            <button class="tg"></button>
+                        </div>
                     </div>
                 </div>
             </div>

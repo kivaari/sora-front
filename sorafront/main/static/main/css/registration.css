@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Hypik';
+    src: url('./hypik.woff2') format('woff2'),
+         url('./hypik.woff') format('woff'),
+         url('./hypik.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body, html {
     margin: 0;
     padding: 0;

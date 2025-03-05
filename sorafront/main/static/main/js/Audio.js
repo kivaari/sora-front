@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const loopImage = loopButton.querySelector('img');
     const likeButton = document.getElementById('likeButton');
     const likeImage = likeButton.querySelector('img');
-    let isLiked = localStorage.getItem('isLiked') === 'true';
+    const textareas = document.querySelectorAll('.style-input');
+    const placeholders = document.querySelectorAll('.placeholder');
 
+
+    let isLiked = localStorage.getItem('isLiked') === 'true';
     let isLoop = false;
     const loopStates = {
         on: 'loopON.png',
@@ -27,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTrackName(trackUrl);
         updateLoopButton();
         initLikeButton();
+        updatePlaceholder();
     }
 
     function setTrackName(url) {
@@ -115,10 +119,36 @@ document.addEventListener("DOMContentLoaded", function () {
     volumeSlider.addEventListener('input', function() {
         const percent = (this.value / this.max) * 100;
         this.style.setProperty('--fill-percent', `${percent}%`);
-        
-        // Для Firefox
         const firefoxGradient = `linear-gradient(to right, #E0E0E0 ${percent}%, rgba(224, 224, 224, 0.5) ${percent}%)`;
         this.style.background = firefoxGradient;
+    });
+
+    function updatePlaceholder() {
+        placeholders.forEach((placeholder, index) => {
+            const textarea = textareas[index];
+            if (textarea.value.trim() === '') {
+                placeholder.style.opacity = '1';
+            } else {
+                placeholder.style.opacity = '0';
+            }
+        });
+    }
+
+    textareas.forEach(textarea => {
+        textarea.addEventListener('input', updatePlaceholder);
+        textarea.addEventListener('change', updatePlaceholder);
+    });
+
+    const compCont = document.querySelector('.comp-cont');
+    let isLoading = false;
+
+    compCont.addEventListener('scroll', () => {
+        if (!isLoading && compCont.scrollTop + compCont.clientHeight >= compCont.scrollHeight - 100) {
+            isLoading = true;
+            // Загрузка новых элементов
+            loadMoreCompositions();
+            isLoading = false;
+        }
     });
 
     initPlayer();
