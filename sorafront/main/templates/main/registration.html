@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOSHI</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'main/css/registration.css' %}">
-</head>
-<body>
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'main/css/registration.css' %}">{% endblock %}
+
+{% block content %}
     <div class="nav">
         <button class="color-scheme"></button>
     </div>
@@ -22,19 +18,36 @@
                     <p class="bar-1">REGISTRATION FORM</p>
                     <p class="bar-2">HOSHI</p>
                 </div>
-                <div class="spacer"></div>
-                <input type="nickname" class="reg-input" placeholder="nickname"></input>
-                <div class="line"></div>
-                <div class="spacer"></div>
-                <input type="password" class="reg-input" placeholder="password"></input>
-                <div class="line"></div>
-                <div class="spacer1"></div>
-                <a class="enter" href="{% url 'home_page' %}">ENTER</a>
-            </div>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="spacer"></div>
+            <input type="text" name="username" class="reg-input" placeholder="nickname" value="{{ form.username.value|default:'' }}">
+            {% if form.username.errors %}
+                <div class="field-error">{{ form.username.errors.0 }}</div>
+            {% endif %}
+            <div class="line"></div>
+
+            <div class="spacer"></div>
+            <input type="password" name="password1" class="reg-input" placeholder="password">
+            {% if form.password1.errors %}
+                <div class="field-error">{{ form.password1.errors.0 }}</div>
+            {% endif %}
+            <div class="line"></div>
+
+            <div class="spacer"></div>
+            <input type="password" name="password2" class="reg-input" placeholder="repeat password">
+            {% if form.password2.errors %}
+                <div class="field-error">{{ form.password2.errors.0 }}</div>
+            {% endif %}
+            <div class="line"></div>
+
+            <div class="spacer1"></div>
+            <button type="submit" class="enter">ENTER</button>
+        </form>
         </div>
         <div class="abstract-1"></div>
         <div class="abstract-2"></div>
         <div class="blur"></div>
     </div>
-</body>
-</html>
+{% endblock %}
