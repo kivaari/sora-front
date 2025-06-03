@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const audio = new Audio(trackUrl);
+    const audio = new Audio();
     const playButton = document.querySelector(".play");
     const volumeSlider = document.querySelector(".volume");
     const timeline = document.querySelector(".timeline");
@@ -13,9 +13,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const likeImage = likeButton.querySelector('img');
     const textareas = document.querySelectorAll('.style-input');
     const placeholders = document.querySelectorAll('.placeholder');
+    const trackLikeButtons = document.querySelectorAll('.lik');
 
+    let currentTrackId = null;
 
-    let isLiked = localStorage.getItem('isLiked') === 'true';
+    document.querySelectorAll('.comp-img').forEach(img => {
+        img.addEventListener('click', function() {
+            const trackPath = this.dataset.track;
+            const trackElement = this.closest('.composition');
+            currentTrackId = trackElement ? trackElement.dataset.trackId : null; // Получаем ID трека
+
+            if (trackPath) {
+                audio.src = trackPath;
+                setTrackName(trackPath);
+                audio.play();
+                playButton.classList.replace("play", "pause");
+                updatePlayerLikeButton(); // Обновляем кнопку лайка в плеере при смене трека
+            }
+        });
+    });
+
     let isLoop = false;
     const loopStates = {
         on: 'loopON.png',
@@ -27,14 +44,26 @@ document.addEventListener("DOMContentLoaded", function () {
         volumeSlider.value = 100;
         isLoop = localStorage.getItem('audioLoop') === 'true';
         audio.loop = isLoop;
-        setTrackName(trackUrl);
         updateLoopButton();
-        initLikeButton();
+        // initLikeButton(); // Эта функция будет заменена updatePlayerLikeButton
         updatePlaceholder();
+
+        const firstTrack = document.querySelector('.comp-img');
+        if (firstTrack) {
+            const trackPath = firstTrack.dataset.track;
+            const trackElement = firstTrack.closest('.composition');
+            currentTrackId = trackElement ? trackElement.dataset.trackId : null;
+            if (trackPath) {
+                audio.src = trackPath;
+                setTrackName(trackPath);
+                updatePlayerLikeButton(); // Обновляем кнопку лайка в плеере при инициализации
+            }
+        }
+        updateAllTrackLikeButtons(); // Обновляем все кнопки лайка в списке при загрузке страницы
     }
 
     function setTrackName(url) {
-        const fileName = url.split('/').pop().split('.')[0];
+        const fileName = decodeURIComponent(url.split('/').pop().split('.')[0]);
         const formattedName = fileName
             .replace(/_/g, ' ')
             .replace(/(^|\s)\S/g, match => match.toUpperCase());
@@ -102,18 +131,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function initLikeButton() {
-        likeImage.src = isLiked 
-            ? likeButton.dataset.liked 
-            : likeButton.dataset.unliked;
+
+    function getTrackLikeState(trackId) {
+        return localStorage.getItem(`liked_${trackId}`) === 'true';
     }
 
+    function setTrackLikeState(trackId, liked) {
+        localStorage.setItem(`liked_${trackId}`, liked);
+    }
+
+    function updatePlayerLikeButton() {
+        if (currentTrackId) {
+            const isLiked = getTrackLikeState(currentTrackId);
+            likeImage.src = isLiked 
+                ? likeButton.dataset.liked 
+                : likeButton.dataset.unliked;
+        } else {
+            // Если трек не выбран, показываем состояние по умолчанию (не лайкнут)
+            likeImage.src = likeButton.dataset.unliked;
+        }
+    }
+
+    function updateTrackLikeButton(buttonElement, trackId) {
+        const isLiked = getTrackLikeState(trackId);
+        const imgElement = buttonElement.querySelector('img');
+        if (imgElement) {
+            imgElement.src = isLiked 
+                ? buttonElement.dataset.likedSrc 
+                : buttonElement.dataset.unlikedSrc;
+        }
+    }
+
+    function updateAllTrackLikeButtons() {
+        trackLikeButtons.forEach(button => {
+            const trackId = button.dataset.trackId;
+            if (trackId) {
+                updateTrackLikeButton(button, trackId);
+            }
+        });
+    }
+
+    // Обработчик клика для кнопки лайка в плеере
     likeButton.addEventListener('click', () => {
-        isLiked = !isLiked;
-        localStorage.setItem('isLiked', isLiked);
-        likeImage.src = isLiked 
-            ? likeButton.dataset.liked 
-            : likeButton.dataset.unliked;
+        if (currentTrackId) {
+            const isLiked = !getTrackLikeState(currentTrackId);
+            setTrackLikeState(currentTrackId, isLiked);
+            updatePlayerLikeButton(); // Обновляем кнопку в плеере
+            // Находим соответствующую кнопку в списке и обновляем ее
+            const correspondingTrackButton = document.querySelector(`.lik[data-track-id="${currentTrackId}"]`);
+            if (correspondingTrackButton) {
+                updateTrackLikeButton(correspondingTrackButton, currentTrackId);
+            }
+        }
+    });
+
+    // Обработчики кликов для кнопок лайка в списке
+    trackLikeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const trackId = this.dataset.trackId;
+            if (trackId) {
+                const isLiked = !getTrackLikeState(trackId);
+                setTrackLikeState(trackId, isLiked);
+                updateTrackLikeButton(this, trackId); // Обновляем текущую кнопку в списке
+
+                // Если лайкнутый трек сейчас играет в плеере, обновляем кнопку в плеере
+                if (currentTrackId === trackId) {
+                    updatePlayerLikeButton();
+                }
+            }
+        });
     });
 
     volumeSlider.addEventListener('input', function() {

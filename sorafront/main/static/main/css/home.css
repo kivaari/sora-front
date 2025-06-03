@@ -137,12 +137,27 @@ body {
 .audio-name {
     font-family: 'Heebo', Arial, sans-serif;
     color: rgba(255, 255, 255, 1);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    margin-top: 10px;
+    position: relative;
     overflow: hidden;
+    padding-right: 20px;
+}
+
+.audio-name.scrolling {
+    animation: marquee 8s linear infinite;
+    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 95%);
+    mask-image: linear-gradient(to right, black 75%, transparent 95%);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .buttons {
@@ -896,14 +911,47 @@ width: 27px;
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 30%;
+    width: 30%; /* Adjust width as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-ttl {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 5px;
+    text-align: left; /* Align text to the left */
+    text-overflow: ellipsis; /* Add ellipsis for truncated text */
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+}
+
+.comp-img {
+    cursor: pointer;
 }
 
 .comp-title {
     font-family: 'Heebo', Arial, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+}
+
+.comp-ttl:hover .comp-title {
+    animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* Adjust the percentage based on the width of the container and text */
+        /* This value might need fine-tuning */
+        transform: translateX(calc(-100% + 100px)); /* Example: scroll to reveal full text */
+    }
 }
 
 .comp-styles,
@@ -930,6 +978,7 @@ width: 27px;
     border: none;
     cursor: pointer;
     padding: 0;
+    background: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -944,10 +993,22 @@ width: 27px;
 }
 
 .lik {
-    background-image: url("../Like.png");
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
     opacity: 0.7;
+}
+
+.lik img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .downl {

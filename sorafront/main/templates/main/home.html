@@ -77,21 +77,27 @@
                 </div>
                 <div class="other">
                     <div class="compositions">
-                        <div class="comp-cont"> /* Тут контейнер для треков */
-                            <li class="composition"> /* Тут сгенерированный трек со всей инфой */
+                        <div class="comp-cont">
+                            {% for track in mp3_files %}
+                            <li class="composition" data-track-id="{{ track.file_name }}">
                                 <div class="comp-container">
-                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img">
-                                    <p class="comp-title">Title</p>
+                                    <img src="{% static 'main/compicon.png' %}" alt="icon" class="comp-img" data-track="{% static 'main/'|add:track.file_name %}">
+                                    <div class="comp-ttl">
+                                        <p class="comp-title">{{ track.title }}</p>
+                                    </div>
                                 </div>
-                                <p class="comp-styles">hip-hop, edm, hard, acid synth</p>
-                                <p class="comp-tempo">160 bpm</p>
-                                <p class="comp-dur">1:00</p>
+                                <p class="comp-styles">{{ track.styles }}</p>
+                                <p class="comp-tempo">{{ track.tempo }}</p>
+                                <p class="comp-dur">{{ track.duration }}</p>
                                 <div class="comp-interactions">
-                                    <button class="del"></button>
-                                    <button class="lik"></button>
-                                    <button class="downl"></button>
+                                    <button class="del" data-file="{{ track.file_name }}"></button>
+                                    <button class="lik" data-track-id="{{ track.file_name }}" data-liked-src="{% static 'main/Liked.png' %}" data-unliked-src="{% static 'main/Like.png' %}">
+                                        <img src="{% static 'main/Like.png' %}" alt="Like">
+                                    </button>
+                                    <button class="downl" data-file="{{ track.file_name }}"></button>
                                 </div>
                             </li>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="socials">
@@ -103,16 +109,16 @@
                     </div>
                 </div>
             </div>
-            <div class="audio-block"> /* Тут плеер */
-                <p class="audio-name" id="current-track">Title</p> /* Тут название трека который играет */
+            <div class="audio-block">
+                <p class="audio-name" id="current-track">Title</p>
                 <div class="audio-container">
-                    <p class="current">0:00</p> /* Тут указание сколько времени трек уже играет */
+                    <p class="current">0:00</p>
                     <div class="timeline">
                         <div class="progress"></div>
                     </div>
-                    <p class="length">0:00</p> /* Тут указание полной длинны трека */
+                    <p class="length">0:00</p>
                 </div>
-                <div class="buttons"> /* Тут кнопки управления */
+                <div class="buttons">
                     <div class="track-interactions">
                         <button class="like" id="likeButton" 
                                 data-liked="{% static 'main/Liked.png' %}" 
@@ -150,9 +156,6 @@
         <div class="abstract-2"></div>
         <div class="blur"></div>
     </div>
-    <script>
-        const trackUrl = "{% static 'main/track2.mp3' %}"; /* Тут ссылка на нужный трек. Сейчас заглушка из статик файлов */ 
-    </script>
     <script src="{% static 'main/js/Audio.js' %}"></script>
 </body>
 </html>
