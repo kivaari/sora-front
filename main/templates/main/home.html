@@ -129,5 +129,11 @@
     </div>
 {% endblock %}
 
-    {% block extra_js %}<script src="{% static 'main/js/Audio.js' %}"></script>{% endblock %}
+    {% block extra_js %}
+    <script src="{% static 'main/js/audioPlayer.js' %}"></script>
+    <script src="{% static 'main/js/trackManager.js' %}"></script>
+    <script src="{% static 'main/js/formHandler.js' %}"></script>
+    <script src="{% static 'main/js/uiControls.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    {% endblock %}
 
